@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "309896563133",
+    "firebase_url": "https://laundryhub-a2508.firebaseio.com",
+    "project_id": "laundryhub-a2508",
+    "storage_bucket": "laundryhub-a2508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309896563133:android:addb6f74538ac466136ad4",
+        "android_client_info": {
+          "package_name": "com.example.laundryhubv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309896563133-sccmg962chnlch2234prl7jhig1h2civ.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEhXHtwwOy_qZv47O_pubU_vHFoNFZfSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309896563133-sccmg962chnlch2234prl7jhig1h2civ.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
