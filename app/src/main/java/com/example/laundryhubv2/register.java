@@ -30,7 +30,7 @@ public class register extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
     String firstname, lastname, email, password1, password1confirm, mobilenumber, address;
-    String role="Registration";
+    String role="Customer";
 
 
 
@@ -78,6 +78,7 @@ public class register extends AppCompatActivity {
                                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                                 databaseReference = FirebaseDatabase.getInstance().getReference("User").child(useridd);
                                 final HashMap<String , String> hashMap = new HashMap<>();
+                                hashMap.put("Role",role);
                                 databaseReference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

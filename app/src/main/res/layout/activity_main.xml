@@ -10,7 +10,7 @@
         android:id="@+id/imageviewlogo"
         android:layout_width="249dp"
         android:layout_height="247dp"
-        app:layout_constraintBottom_toTopOf="@+id/Mobile"
+        app:layout_constraintBottom_toTopOf="@+id/Textinputemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Pass"
+        android:id="@+id/Textinputpassword"
         android:layout_width="315dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -49,7 +49,6 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -57,19 +56,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Mobile"
+        android:id="@+id/Textinputemail"
         android:layout_width="315dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/Pass"
+        app:layout_constraintBottom_toTopOf="@+id/Textinputpassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mobile Number"
-            android:inputType="number" />
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
