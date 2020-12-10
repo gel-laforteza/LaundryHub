@@ -29,12 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button;
     TextInputLayout email, pass;
-    Button login;
+    Button login,reg;
     String emailid, pwd;
     FirebaseAuth Fauth;
-    FirebaseAuth Fauthh;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
 
 
@@ -58,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             email =(TextInputLayout)findViewById(R.id.Textinputemail);
             pass = (TextInputLayout)findViewById(R.id.Textinputpassword);
             login = (Button)findViewById(R.id.Buttonlogin);
+            reg = (Button) findViewById(R.id.Buttonregister);
 
             Fauth = FirebaseAuth.getInstance();
 
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-            login.setOnClickListener(new View.OnClickListener() {
+            reg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(MainActivity.this, register.class));
@@ -142,51 +140,6 @@ public class MainActivity extends AppCompatActivity {
         }
         isvalid=(isvalidemail && isvalidpassword)?true:false;
         return isvalid;
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                    Fauthh = FirebaseAuth.getInstance();
-                    if(Fauthh.getCurrentUser()!=null){
-                        if(Fauthh.getCurrentUser().isEmailVerified()){
-                            Fauthh=FirebaseAuth.getInstance();
-
-                            databaseReference = FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid());
-                            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot){
-                                    String role = snapshot.getValue(String.class);
-                                    if(role.equals("Customer")){
-                                        startActivity(new Intent(MainActivity.this,Placeorder.class));
-                                        finish();
-                                    }
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
-                                    Toast.makeText(MainActivity.this,error.getMessage(),Toast.LENGTH_LONG).show();
-
-                                }
-                            });
-                        }else{
-                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            builder.setMessage("Check whether you have verified your email, otherwise please verify to log in");
-                            builder.setCancelable(false);
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            AlertDialog alertDialog = builder.create();
-                            alertDialog.show();
-                            Fauthh.signOut();
-                        }
-                    }
-                }
-            },3000);
-        }
     }
 
 

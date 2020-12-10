@@ -109,9 +109,7 @@ public class register extends AppCompatActivity {
                                                             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
-
                                                                     dialog.dismiss();
-
                                                                 }
                                                             });
                                                             AlertDialog Alert = builder.create();
