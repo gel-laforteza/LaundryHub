@@ -2,8 +2,69 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Buttonplaceorder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Placeorder">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="189dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="92dp"
+        android:text="PLACE ORDER"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Checkboxdry"
+        android:layout_width="239dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="10dp"
+        android:text="DRY"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxfold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Checkboxwash"
+        android:layout_width="239dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="10dp"
+        android:text="WASH"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxdry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Checkboxfold"
+        android:layout_width="239dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="10dp"
+        android:text="FOLD"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxpress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/Checkboxpress"
+        android:layout_width="239dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="120dp"
+        android:text="PRESS"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT SERVICE/S:"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxwash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
