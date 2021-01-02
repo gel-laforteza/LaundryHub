@@ -62,13 +62,13 @@ public class splashscreen extends AppCompatActivity {
                     if(Fauthh.getCurrentUser().isEmailVerified()){
                         Fauthh=FirebaseAuth.getInstance();
 
-                        databaseReference = FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid());
+                        databaseReference = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getUid()+"/Role");
                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot){
                                 String role = snapshot.getValue(String.class);
                                 if(role.equals("Customer")){
-                                    startActivity(new Intent(splashscreen.this,Placeorder.class));
+                                    startActivity(new Intent(splashscreen.this,SelectType.class));
                                     finish();
                                 }
 

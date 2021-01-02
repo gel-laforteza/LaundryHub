@@ -14,6 +14,7 @@
         android:gravity="center"
         android:text="CREATE YOUR ACCOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Firstname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

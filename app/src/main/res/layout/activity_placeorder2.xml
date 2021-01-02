@@ -2,14 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Buttonplaceorder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".Placeorder">
+    tools:context=".Placeorder2">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonheavy"
         android:layout_width="189dp"
         android:layout_height="52dp"
         android:layout_marginBottom="56dp"
@@ -20,74 +18,74 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/Checkboxwash"
+        android:id="@+id/Checkboxwashheavy"
         android:layout_width="201dp"
         android:layout_height="53dp"
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
-        android:text="WASH -35 Php /Kilo"
-        app:layout_constraintBottom_toTopOf="@+id/Checkboxdry"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        android:text="WASH - 40 Php /Kilo"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxdryheavy"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/Checkboxpress"
+        android:id="@+id/Checkboxpressheavy"
         android:layout_width="201dp"
         android:layout_height="53dp"
         android:layout_marginBottom="52dp"
         android:onClick="onCheckboxClicked"
-        android:text="PRESS - 20 Php"
-        app:layout_constraintBottom_toTopOf="@+id/total1"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        android:text="PRESS - 25 Php"
+        app:layout_constraintBottom_toTopOf="@+id/total1heavy"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/Checkboxdry"
+        android:id="@+id/Checkboxdryheavy"
         android:layout_width="201dp"
         android:layout_height="53dp"
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
-        android:text="DRY -20 Php"
-        app:layout_constraintBottom_toTopOf="@+id/Checkboxfold"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        android:text="DRY - 25 Php"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxfoldheavy"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/Checkboxfold"
+        android:id="@+id/Checkboxfoldheavy"
         android:layout_width="201dp"
         android:layout_height="53dp"
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
-        android:text="FOLD - 20 php"
-        app:layout_constraintBottom_toTopOf="@+id/Checkboxpress"
-        app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+        android:text="FOLD - 25 php"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxpressheavy"
+        app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewheavy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="SELECT SERVICE/S:"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/textView3heavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textViewfabric"
+        android:id="@+id/textViewfabricheavy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SOFT FABRIC"
+        android:text="HEAVY FABRIC"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewheavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,41 +93,41 @@
         app:layout_constraintVertical_bias="0.784" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView3heavy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:text="MINIMUM WEIGHT IS 3 KILOS, MAXIMUM OF 8 KILOS"
-        app:layout_constraintBottom_toTopOf="@+id/Checkboxwash"
+        app:layout_constraintBottom_toTopOf="@+id/Checkboxwashheavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/total1"
+        android:id="@+id/total1heavy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:text="TOTAL PRICE:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonheavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupheavy"
         android:layout_width="100dp"
         android:layout_height="256dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonheavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3heavy"
         app:layout_constraintVertical_bias="0.254">
 
         <RadioButton
-            android:id="@+id/Radiobutton4"
+            android:id="@+id/Radiobutton4heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
@@ -138,7 +136,7 @@
             tools:layout_editor_absoluteY="263dp" />
 
         <RadioButton
-            android:id="@+id/Radiobutton5"
+            android:id="@+id/Radiobutton5heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
@@ -147,7 +145,7 @@
             tools:layout_editor_absoluteY="263dp" />
 
         <RadioButton
-            android:id="@+id/Radiobutton6"
+            android:id="@+id/Radiobutton6heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
@@ -156,7 +154,7 @@
             tools:layout_editor_absoluteY="263dp" />
 
         <RadioButton
-            android:id="@+id/Radiobutton7"
+            android:id="@+id/Radiobutton7heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
@@ -165,7 +163,7 @@
             tools:layout_editor_absoluteY="263dp" />
 
         <RadioButton
-            android:id="@+id/Radiobutton8"
+            android:id="@+id/Radiobutton8heavy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="radioClicked"

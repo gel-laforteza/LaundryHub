@@ -8,11 +8,12 @@ import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class Placeorder extends AppCompatActivity {
+public class Placeorder2 extends AppCompatActivity {
+
 
     Prices prices;
-    TextView total;
-    double total_price;
+    TextView totalheavy;
+    double total_price_heavy;
 
 
 
@@ -20,10 +21,10 @@ public class Placeorder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_placeorder);
+        setContentView(R.layout.activity_placeorder2);
 
         prices = new Prices();
-        total = findViewById(R.id. total1);
+        totalheavy = findViewById(R.id. total1heavy);
 
 
     }
@@ -32,38 +33,38 @@ public class Placeorder extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
         switch (view.getId()){
 
-            case R.id.Radiobutton4:
+            case R.id.Radiobutton4heavy:
                 if (checked)
-                    prices.setLaundry_prices(35);
+                    prices.setLaundry_prices(40);
                 break;
 
-            case R.id.Radiobutton5:
+            case R.id.Radiobutton5heavy:
                 if (checked)
-                    prices.setLaundry_prices(70);
+                    prices.setLaundry_prices(80);
                 break;
 
-            case R.id.Radiobutton6:
+            case R.id.Radiobutton6heavy:
                 if (checked)
-                    prices.setLaundry_prices(105);
+                    prices.setLaundry_prices(120);
                 break;
 
-            case R.id.Radiobutton7:
+            case R.id.Radiobutton7heavy:
                 if (checked)
-                    prices.setLaundry_prices(140);
+                    prices.setLaundry_prices(160);
                 break;
 
-            case R.id.Radiobutton8:
+            case R.id.Radiobutton8heavy:
                 if (checked)
-                    prices.setLaundry_prices(175);
+                    prices.setLaundry_prices(200);
                 break;
         }
 
-        total.setText("TOTAL PRICE:" + calculate_total1());
+        totalheavy.setText("TOTAL PRICE:" + calculate_total1heavy());
     }
 
-    private double calculate_total1(){
-        total_price = prices.getLaundry_prices() + prices.getWash_price() + prices.getDry_price() + prices.getFold_price() + prices.getPress_price();
-        return  total_price;
+    private double calculate_total1heavy(){
+        total_price_heavy = prices.getLaundry_prices() + prices.getWash_price() + prices.getDry_price() + prices.getFold_price() + prices.getPress_price();
+        return  total_price_heavy;
     }
 
     public void onCheckboxClicked(View view) {
@@ -71,28 +72,28 @@ public class Placeorder extends AppCompatActivity {
         boolean checked = ((CheckBox) view).isChecked();
 
         switch (view.getId()){
-            case R.id.Checkboxwash:
+            case R.id.Checkboxwashheavy:
                 if (checked)
                     prices.setWash_price(105);
                 else
                     prices.setWash_price(0);
                 break;
 
-            case R.id.Checkboxdry:
+            case R.id.Checkboxdryheavy:
                 if (checked)
                     prices.setDry_price(20);
                 else
                     prices.setDry_price(0);
                 break;
 
-            case R.id.Checkboxfold:
+            case R.id.Checkboxfoldheavy:
                 if (checked)
                     prices.setFold_price(20);
                 else
                     prices.setFold_price(0);
                 break;
 
-            case R.id.Checkboxpress:
+            case R.id.Checkboxpressheavy:
                 if (checked)
                     prices.setPress_price(20);
                 else
@@ -101,11 +102,11 @@ public class Placeorder extends AppCompatActivity {
 
         }
 
-        total.setText("TOTAL PRICE:" + calculate_total());
+        totalheavy.setText("TOTAL PRICE:" + calculate_totalheavy());
     }
 
-    private double calculate_total(){
-        total_price = prices.getLaundry_prices() + prices.getWash_price() + prices.getDry_price() + prices.getFold_price() + prices.getPress_price();
-        return  total_price;
+    private double calculate_totalheavy(){
+        total_price_heavy = prices.getLaundry_prices() + prices.getWash_price() + prices.getDry_price() + prices.getFold_price() + prices.getPress_price();
+        return  total_price_heavy;
     }
 }

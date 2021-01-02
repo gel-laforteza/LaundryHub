@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectType">
+
+    <Button
+        android:id="@+id/Buttonsoft"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="56dp"
+        android:text="Soft (Cotton/Linen/Silk)"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonheavy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonheavy"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="192dp"
+        android:text="heavy (Maong/wool)"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="336dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="124dp"
+        android:gravity="center"
+        android:text="SELECT CLOTHES TYPE:"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonsoft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
