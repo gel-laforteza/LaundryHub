@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
 
-            email =(TextInputLayout)findViewById(R.id.Textinputweight);
+            email =(TextInputLayout)findViewById(R.id.Textinputemail);
             pass = (TextInputLayout)findViewById(R.id.Textinputpassword);
             login = (Button)findViewById(R.id.Buttonlogin);
             reg = (Button) findViewById(R.id.Buttonregister);

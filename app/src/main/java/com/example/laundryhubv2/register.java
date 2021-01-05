@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -110,6 +111,7 @@ public class register extends AppCompatActivity {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
                                                                     dialog.dismiss();
+                                                                    startActivity(new Intent(register.this, MainActivity.class));
                                                                 }
                                                             });
                                                             AlertDialog Alert = builder.create();
@@ -222,7 +224,7 @@ public class register extends AppCompatActivity {
             }
         }
 
-        isValid = (isValidname && isValidpassword && isValidconfpassword && isValidemail && isValidmobilenum && isValidaddress) ? true : false;
+        isValid = (isValidname && isValidlname && isValidpassword && isValidconfpassword && isValidemail && isValidmobilenum && isValidaddress) ? true : false;
         return isValid;
 
     }
