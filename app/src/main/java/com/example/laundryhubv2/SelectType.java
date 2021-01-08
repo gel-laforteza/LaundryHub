@@ -32,6 +32,22 @@ public class SelectType extends AppCompatActivity {
                 openplaceorder2();
             }
         });
+
+        button = (Button) findViewById(R.id.Buttonviewbookingsoft);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openviewbooking();
+            }
+        });
+
+        button = (Button) findViewById(R.id.Buttonviewbookingheavy);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openviewbookingheavy();
+            }
+        });
     }
 
     
@@ -44,6 +60,16 @@ public class SelectType extends AppCompatActivity {
         Intent intent = new Intent(this, Placeorder2.class);
         startActivity(intent);
     
+    }
+
+    private  void openviewbooking(){
+        Intent intent = new Intent(this, Booking.class);
+        startActivity((intent));
+    }
+
+    private  void openviewbookingheavy(){
+        Intent intent = new Intent(this, Bookingheavy.class);
+        startActivity((intent));
     }
 
 }

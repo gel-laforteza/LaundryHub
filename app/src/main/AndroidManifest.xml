@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaundryHubV2">
-        <activity android:name=".Placeorder2"></activity>
+        <activity android:name=".Bookingheavy"></activity>
+        <activity android:name=".Booking" />
+        <activity android:name=".Placeorder2" />
         <activity android:name=".SelectType" />
         <activity android:name=".Placeorder" />
         <activity android:name=".register" />

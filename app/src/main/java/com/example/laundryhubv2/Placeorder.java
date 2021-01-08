@@ -12,6 +12,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,113 +65,144 @@ public class Placeorder extends AppCompatActivity {
             public void onClick(View v) {
 
                 String totall = Totalprice.getText().toString().trim();
+                //totalprice = Totalprice.getText().toString().trim();
                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
-                HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("Total Price", totall);
+                //HashMap<String, String> dataMap = new HashMap<String, String>();
+                //dataMap.put("Total Price", totall);
 
-                databaseReferenceee.push().setValue(dataMap);
+                databaseReferenceee.child("Total Price").setValue(totall);
 
 
 
                 if (Wash.isChecked()) {
-                    String washh = Wash.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Wash", washh);
+                    //String washh = Wash.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Wash", washh);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Wash").setValue("Yes");
+
+                } else {
+                    databaseReferenceee.child("Wash").setValue("No");
+
                 }
 
                 if (Dry.isChecked()){
 
-                    String dryy = Dry.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Dry", dryy);
+                    //String dryy = Dry.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Dry", dryy);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Dry").setValue("Yes");
+
+                } else {
+                    databaseReferenceee.child("Dry").setValue("No");
 
                 }
 
                 if (Fold.isChecked()){
-                    String foldd = Fold.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Fold", foldd);
+                    //String foldd = Fold.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Fold", foldd);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Fold").setValue("Yes");
+
+                } else {
+                    databaseReferenceee.child("Fold").setValue("No");
 
 
                 }
 
                 if (Press.isChecked()){
-                    String presss = Press.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Press", presss);
+                    //String presss = Press.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Press", presss);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Press").setValue("Yes");
 
+                } else {
+                    databaseReferenceee.child("Press").setValue("No");
 
                 }
 
-                if (Four.isChecked()){
-                    String fourr = Four.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Weight", fourr);
+                if (Four.isChecked()) {
+                    //String fourr = Four.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Weight", fourr);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Weight").setValue("4 Kilos");
+
+                }else{
+                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+
 
                 }
 
                 if (Five.isChecked()){
-                    String fivee = Five.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Weight", fivee);
+                    //String fivee = Five.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Weight", fivee);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Weight").setValue("5 Kilos");
+
+                }else{
+                    databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
                 if (Six.isChecked()){
-                    String sixx = Six.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Weight", sixx);
+                    //String sixx = Six.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Weight", sixx);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Weight").setValue("6 Kilos");
+
+                }else{
+                    databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
                 if (Seven.isChecked()){
-                    String sevenn = Seven.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Weight", sevenn);
+                    //String sevenn = Seven.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Weight", sevenn);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    databaseReferenceee.child("Weight").setValue("7 Kilos");
+
+                }else{
+                    databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
                 if (Eight.isChecked()){
-                    String eightt = Seven.getText().toString().trim();
-                    String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
-                    HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    dataMapp.put("Weight", eightt);
+                    //String eightt = Seven.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Weight", eightt);
 
-                    databaseReferenceee.push().setValue(dataMapp);
+                    //databaseReferenceee.setValue(dataMapp);
+
+                    databaseReferenceee.child("Weight").setValue("8 Kilos");
+
+                }else{
+                    databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
@@ -213,7 +246,7 @@ public class Placeorder extends AppCompatActivity {
                 break;
         }
 
-        total.setText("TOTAL PRICE:" + calculate_total1());
+        total.setText("TOTAL PRICE: " + calculate_total1());
     }
 
     private double calculate_total1(){
@@ -256,7 +289,7 @@ public class Placeorder extends AppCompatActivity {
 
         }
 
-        total.setText("TOTAL PRICE:" + calculate_total());
+        total.setText("TOTAL PRICE: " + calculate_total());
     }
 
     private double calculate_total(){

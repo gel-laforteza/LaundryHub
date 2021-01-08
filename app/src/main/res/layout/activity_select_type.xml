@@ -6,35 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".SelectType">
 
-    <Button
-        android:id="@+id/Buttonsoft"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="56dp"
-        android:text="Soft (Cotton/Linen/Silk)"
-        app:backgroundTint="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/Buttonheavy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/Buttonheavy"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="192dp"
-        android:text="heavy (Maong/wool)"
-        app:backgroundTint="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="336dp"
         android:layout_height="98dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="64dp"
         android:gravity="center"
         android:text="SELECT CLOTHES TYPE:"
         android:textSize="35sp"
@@ -42,6 +18,54 @@
         app:layout_constraintBottom_toTopOf="@+id/Buttonsoft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonheavy"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="92dp"
+        android:text="heavy (Maong/wool)"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonviewbookingsoft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonsoft"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="28dp"
+        android:text="Soft (Cotton/Linen/Silk)"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonheavy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonviewbookingsoft"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="28dp"
+        android:text="VIEW MY BOOKING ON SOFT FABRICS"
+        app:backgroundTint="#D84B4B"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonviewbookingheavy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonviewbookingheavy"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="96dp"
+        android:text="VIEW MY BOOKING ON HEAVY FABRICS"
+        app:backgroundTint="#D84B4B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
