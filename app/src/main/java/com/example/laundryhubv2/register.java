@@ -107,7 +107,7 @@ public class register extends AppCompatActivity {
                                                             AlertDialog.Builder builder = new AlertDialog.Builder(register.this);
                                                             builder.setMessage("You have registered! Please verify your email to login");
                                                             builder.setCancelable(false);
-                                                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
                                                                     dialog.dismiss();

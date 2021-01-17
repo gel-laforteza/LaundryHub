@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Booking">
+    tools:context=".Booking"
+    android:background="@drawable/bg"
+    android:backgroundTint="#80FFFFFF"
+    android:backgroundTintMode="src_over">
 
     <TextView
         android:id="@+id/textView4"
@@ -15,8 +18,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Textviewwashbooking"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.655" />
+
+    <TextView
+        android:id="@+id/Textviewtotalpricebooking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:text="Total Price:"
+        android:textColor="#FF0000"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/Buttoncancelorder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Textviewwashbooking"
@@ -27,7 +45,7 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Textviewdrybooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -39,7 +57,7 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Textviewfoldbooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -51,7 +69,7 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Textviewpressbooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintHorizontal_bias="0.226"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -63,7 +81,7 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Textviewweightbooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -75,19 +93,17 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/Textviewtotalpricebooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/Textviewtotalpricebooking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
-        android:text="Total Price:"
-        android:textColor="#FF0000"
-        android:textSize="25dp"
+    <Button
+        android:id="@+id/Buttoncancelorder"
+        android:layout_width="189dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="68dp"
+        android:text="CANCEL BOOKING"
+        app:backgroundTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

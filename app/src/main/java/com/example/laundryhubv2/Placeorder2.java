@@ -2,6 +2,9 @@ package com.example.laundryhubv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +15,11 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+import static java.text.DateFormat.getDateTimeInstance;
 
 public class Placeorder2 extends AppCompatActivity {
 
@@ -53,6 +61,7 @@ public class Placeorder2 extends AppCompatActivity {
 
         FAuthhhheavy = FirebaseAuth.getInstance();
 
+
         Buttonplaceorderheavy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,21 +75,6 @@ public class Placeorder2 extends AppCompatActivity {
 
                 databaseReferenceeeheavy.child("Total Price").setValue(totall);
 
-
-
-                if (Washheavy.isChecked()) {
-                    //String washh = Wash.getText().toString().trim();
-                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
-                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    //dataMapp.put("Wash", washh);
-
-                    databaseReferenceeeheavy.child("Wash").setValue("Yes");
-
-                } else {
-                    databaseReferenceeeheavy.child("Wash").setValue("No");
-
-                }
 
                 if (Dryheavy.isChecked()){
 
@@ -126,6 +120,49 @@ public class Placeorder2 extends AppCompatActivity {
 
                 }
 
+
+                if (Washheavy.isChecked()) {
+                    //String washh = Wash.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Wash", washh);
+
+                    databaseReferenceeeheavy.child("Wash").setValue("Yes");
+                    databaseReferenceeeheavy.child("Weight").setValue("Minimum");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder2.this);
+                    builder.setMessage("BOOKING PLACED! YOU CAN NOW VIEW YOUR BOOKING.");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            startActivity(new Intent(Placeorder2.this, SelectType.class));
+                        }
+                    });
+                    AlertDialog Alert = builder.create();
+                    Alert.show();
+
+
+                } else if(Washheavy.isChecked() == false) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder2.this);
+                    builder.setMessage("PLEASE SELECT WASH TO SET BOOKING TO MINIMUM");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog Alert = builder.create();
+                    Alert.show();
+
+                    databaseReferenceeeheavy = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
+                    databaseReferenceeeheavy.setValue(null);
+                }
+
                 if (Fourheavy.isChecked()) {
                     //String fourr = Four.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -135,8 +172,8 @@ public class Placeorder2 extends AppCompatActivity {
 
                     databaseReferenceeeheavy.child("Weight").setValue("4 Kilos");
 
-                }else{
-                    databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
+                //}else{
+                   // databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
 
 
                 }
@@ -150,8 +187,8 @@ public class Placeorder2 extends AppCompatActivity {
 
                     databaseReferenceeeheavy.child("Weight").setValue("5 Kilos");
 
-                }else{
-                    databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
+               // }else{
+                   // databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
 
                 }
 
@@ -164,8 +201,8 @@ public class Placeorder2 extends AppCompatActivity {
 
                     databaseReferenceeeheavy.child("Weight").setValue("6 Kilos");
 
-                }else{
-                    databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
+                //}else{
+                   // databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
 
                 }
 
@@ -178,8 +215,8 @@ public class Placeorder2 extends AppCompatActivity {
 
                     databaseReferenceeeheavy.child("Weight").setValue("7 Kilos");
 
-                }else{
-                    databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
+                //}else{
+                   // databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
 
                 }
 
@@ -194,12 +231,10 @@ public class Placeorder2 extends AppCompatActivity {
 
                     databaseReferenceeeheavy.child("Weight").setValue("8 Kilos");
 
-                }else{
-                    databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
+               // }else{
+                   // databaseReferenceeeheavy.child("Weight").setValue("3 Kilos");
 
                 }
-
-
 
             }
         });

@@ -3,7 +3,10 @@ package com.example.laundryhubv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -74,22 +77,7 @@ public class Placeorder extends AppCompatActivity {
                 databaseReferenceee.child("Total Price").setValue(totall);
 
 
-
-                if (Wash.isChecked()) {
-                    //String washh = Wash.getText().toString().trim();
-                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
-                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
-                    //dataMapp.put("Wash", washh);
-
-                    databaseReferenceee.child("Wash").setValue("Yes");
-
-                } else {
-                    databaseReferenceee.child("Wash").setValue("No");
-
-                }
-
-                if (Dry.isChecked()){
+                if (Dry.isChecked()) {
 
                     //String dryy = Dry.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -104,7 +92,7 @@ public class Placeorder extends AppCompatActivity {
 
                 }
 
-                if (Fold.isChecked()){
+                if (Fold.isChecked()) {
                     //String foldd = Fold.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -119,7 +107,7 @@ public class Placeorder extends AppCompatActivity {
 
                 }
 
-                if (Press.isChecked()){
+                if (Press.isChecked()) {
                     //String presss = Press.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -130,6 +118,49 @@ public class Placeorder extends AppCompatActivity {
 
                 } else {
                     databaseReferenceee.child("Press").setValue("No");
+                }
+
+                if (Wash.isChecked()) {
+                    //String washh = Wash.getText().toString().trim();
+                    //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                    //HashMap<String, String> dataMapp = new HashMap<String, String>();
+                    //dataMapp.put("Wash", washh);
+
+                    databaseReferenceee.child("Wash").setValue("Yes");
+                    databaseReferenceee.child("Weight").setValue("Minimum");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder.this);
+                    builder.setMessage("BOOKING PLACED! YOU CAN NOW VIEW YOUR BOOKING.");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            startActivity(new Intent(Placeorder.this, SelectType.class));
+                        }
+                    });
+                    AlertDialog Alert = builder.create();
+                    Alert.show();
+
+
+                } else if(Wash.isChecked() == false) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder.this);
+                    builder.setMessage("PLEASE SELECT WASH TO SET BOOKING TO MINIMUM");
+                    builder.setCancelable(false);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog Alert = builder.create();
+                    Alert.show();
+
+                    databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                    databaseReferenceee.setValue(null);
+
 
                 }
 
@@ -142,13 +173,13 @@ public class Placeorder extends AppCompatActivity {
 
                     databaseReferenceee.child("Weight").setValue("4 Kilos");
 
-                }else{
-                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+                    //}else{
+                    // databaseReferenceee.child("Weight").setValue("3 Kilos");
 
 
                 }
 
-                if (Five.isChecked()){
+                if (Five.isChecked()) {
                     //String fivee = Five.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -157,12 +188,12 @@ public class Placeorder extends AppCompatActivity {
 
                     databaseReferenceee.child("Weight").setValue("5 Kilos");
 
-                }else{
-                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+                    // }else{
+                    //   databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
-                if (Six.isChecked()){
+                if (Six.isChecked()) {
                     //String sixx = Six.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -171,12 +202,12 @@ public class Placeorder extends AppCompatActivity {
 
                     databaseReferenceee.child("Weight").setValue("6 Kilos");
 
-                }else{
-                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+                    //}else{
+                    //  databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
-                if (Seven.isChecked()){
+                if (Seven.isChecked()) {
                     //String sevenn = Seven.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -185,12 +216,12 @@ public class Placeorder extends AppCompatActivity {
 
                     databaseReferenceee.child("Weight").setValue("7 Kilos");
 
-                }else{
-                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+                    // }else{
+                    //  databaseReferenceee.child("Weight").setValue("3 Kilos");
 
                 }
 
-                if (Eight.isChecked()){
+                if (Eight.isChecked()) {
                     //String eightt = Seven.getText().toString().trim();
                     //String useriddd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                     //databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useriddd);
@@ -201,14 +232,17 @@ public class Placeorder extends AppCompatActivity {
 
                     databaseReferenceee.child("Weight").setValue("8 Kilos");
 
-                }else{
-                    databaseReferenceee.child("Weight").setValue("3 Kilos");
+                    // }else{
+                    //  databaseReferenceee.child("Weight").setValue("3 Kilos");
+
+
 
                 }
 
 
-
             }
+
+
         });
 
 

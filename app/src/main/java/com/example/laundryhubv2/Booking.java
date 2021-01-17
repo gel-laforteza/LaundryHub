@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 
         private DatabaseReference databaseReferencebooking;
         private TextView washbooking,drybooking,foldbooking,pressbooking,weightbooking,totalpricebooking;
+        private Button buttoncancel;
+        DatabaseReference databaseReferencebooking2;
         FirebaseAuth Fauthh;
 
     @Override
@@ -38,6 +42,7 @@ import com.google.firebase.database.ValueEventListener;
         pressbooking = (TextView) findViewById(R.id. Textviewpressbooking);
         weightbooking = (TextView) findViewById(R.id. Textviewweightbooking);
         totalpricebooking = (TextView) findViewById(R.id. Textviewtotalpricebooking);
+        buttoncancel = (Button) findViewById(R.id.Buttoncancelorder);
 
 
 
@@ -82,9 +87,10 @@ import com.google.firebase.database.ValueEventListener;
                 String weighttt = (String) dataSnapshot.child("Weight").getValue();
                 weightbooking.setText(("Weight: " + weighttt));
 
-                if (weighttt ==null){
-                    weightbooking.setText(("Weight: 3 Kilos"));
+                if (weighttt ==null) {
+                    weightbooking.setText(("Weight: None"));
                 }
+
 
 
                 String totalpriceee = (String) dataSnapshot.child("Total Price").getValue();
@@ -96,6 +102,17 @@ import com.google.firebase.database.ValueEventListener;
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+
+
+        });
+
+        buttoncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                databaseReferencebooking2 = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                databaseReferencebooking2.setValue(null);
             }
         });
 

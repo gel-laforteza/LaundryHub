@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +19,8 @@ public class Bookingheavy extends AppCompatActivity {
 
     private DatabaseReference databaseReferencebookingheavy;
     private TextView washbookingheavy,drybookingheavy,foldbookingheavy,pressbookingheavy,weightbookingheavy,totalpricebookingheavy;
+    private Button buttoncancelheavy;
+    DatabaseReference databaseReferencebooking3;
     FirebaseAuth Fauthhheavy;
 
     @Override
@@ -37,6 +41,7 @@ public class Bookingheavy extends AppCompatActivity {
         pressbookingheavy = (TextView) findViewById(R.id. Textviewpressbookingheavy);
         weightbookingheavy = (TextView) findViewById(R.id. Textviewweightbookingheavy);
         totalpricebookingheavy = (TextView) findViewById(R.id. Textviewtotalpricebookingheavy);
+        buttoncancelheavy = (Button) findViewById(R.id.Buttoncancelorderheavy);
 
 
 
@@ -82,7 +87,7 @@ public class Bookingheavy extends AppCompatActivity {
                 weightbookingheavy.setText(("Weight: " + weighttt));
 
                 if (weighttt ==null){
-                    weightbookingheavy.setText(("Weight: 3 Kilos"));
+                    weightbookingheavy.setText(("Weight: None"));
                 }
 
 
@@ -97,6 +102,16 @@ public class Bookingheavy extends AppCompatActivity {
 
             }
         });
+
+        buttoncancelheavy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                databaseReferencebooking3 = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
+                databaseReferencebooking3.setValue(null);
+            }
+        });
+
 
 
 
