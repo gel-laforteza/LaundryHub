@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static java.text.DateFormat.getDateTimeInstance;
@@ -35,6 +36,9 @@ public class Placeorder2 extends AppCompatActivity {
     CheckBox Washheavy, Dryheavy, Foldheavy, Pressheavy;
     RadioButton Fourheavy, Fiveheavy, Sixheavy, Sevenheavy, Eightheavy;
     String wash, dry, fold, press, four, five, six, seven, eight, totalprice;
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+
 
 
 
@@ -67,13 +71,15 @@ public class Placeorder2 extends AppCompatActivity {
             public void onClick(View v) {
 
                 String totall = Totalpriceheavy.getText().toString().trim();
+                String strDate = dateFormat.format(date).toString();
                 //totalprice = Totalprice.getText().toString().trim();
                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 databaseReferenceeeheavy = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
                 //HashMap<String, String> dataMap = new HashMap<String, String>();
                 //dataMap.put("Total Price", totall);
 
-                databaseReferenceeeheavy.child("Total Price").setValue(totall);
+                databaseReferenceeeheavy.child("TotalPrice").setValue(totall);
+                databaseReferenceeeheavy.child("DateAndTime").setValue(strDate);
 
 
                 if (Dryheavy.isChecked()){
@@ -132,13 +138,13 @@ public class Placeorder2 extends AppCompatActivity {
                     databaseReferenceeeheavy.child("Weight").setValue("Minimum");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder2.this);
-                    builder.setMessage("BOOKING PLACED! YOU CAN NOW VIEW YOUR BOOKING.");
+                    builder.setMessage("PLEASE ENTER DETAILS");
                     builder.setCancelable(false);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
-                            startActivity(new Intent(Placeorder2.this, SelectType.class));
+                            startActivity(new Intent(Placeorder2.this, Detailsheavy.class));
                         }
                     });
                     AlertDialog Alert = builder.create();

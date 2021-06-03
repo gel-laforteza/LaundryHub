@@ -24,6 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Placeorder extends AppCompatActivity {
@@ -39,6 +42,8 @@ public class Placeorder extends AppCompatActivity {
     CheckBox Wash, Dry, Fold, Press;
     RadioButton Four, Five, Six, Seven, Eight;
     String wash, dry, fold, press, four, five, six, seven, eight, totalprice;
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
 
 
     @Override
@@ -68,13 +73,19 @@ public class Placeorder extends AppCompatActivity {
             public void onClick(View v) {
 
                 String totall = Totalprice.getText().toString().trim();
+                String strDate = dateFormat.format(date).toString();
                 //totalprice = Totalprice.getText().toString().trim();
                 String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 databaseReferenceee = FirebaseDatabase.getInstance().getReference("Soft Orders").child(useridd);
+                //databaseReferencesub = FirebaseDatabase.getInstance().getReference("Registration").child(useridd);
                 //HashMap<String, String> dataMap = new HashMap<String, String>();
                 //dataMap.put("Total Price", totall);
 
-                databaseReferenceee.child("Total Price").setValue(totall);
+
+
+
+                databaseReferenceee.child("TotalPrice").setValue(totall);
+                databaseReferenceee.child("DateAndTime").setValue(strDate);
 
 
                 if (Dry.isChecked()) {
@@ -131,13 +142,13 @@ public class Placeorder extends AppCompatActivity {
                     databaseReferenceee.child("Weight").setValue("Minimum");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Placeorder.this);
-                    builder.setMessage("BOOKING PLACED! YOU CAN NOW VIEW YOUR BOOKING.");
+                    builder.setMessage("ENTER DELIVERY DETAILS");
                     builder.setCancelable(false);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
-                            startActivity(new Intent(Placeorder.this, SelectType.class));
+                            startActivity(new Intent(Placeorder.this, Details.class));
                         }
                     });
                     AlertDialog Alert = builder.create();

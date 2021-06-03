@@ -4,12 +4,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_laundryhub"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaundryHubV2">
-        <activity android:name=".Bookingheavy"></activity>
+        <activity android:name=".Detailsheavy"></activity>
+        <activity android:name=".Details" />
+        <activity android:name=".Bookingheavy" />
         <activity android:name=".Booking" />
         <activity android:name=".Placeorder2" />
         <activity android:name=".SelectType" />

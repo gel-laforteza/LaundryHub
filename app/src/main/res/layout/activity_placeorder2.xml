@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Placeorder2"
-    android:background="@drawable/bg"
-    android:backgroundTint="#80FFFFFF"
-    android:backgroundTintMode="src_over">
+    android:background="@drawable/bg">
 
     <Button
         android:id="@+id/buttonheavy"
@@ -27,6 +25,7 @@
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
         android:text="WASH - 40 Php /Kilo"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Checkboxdryheavy"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
@@ -39,6 +38,7 @@
         android:layout_marginBottom="52dp"
         android:onClick="onCheckboxClicked"
         android:text="PRESS - 25 Php"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/total1heavy"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
@@ -51,6 +51,7 @@
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
         android:text="DRY - 25 Php"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Checkboxfoldheavy"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
@@ -63,6 +64,7 @@
         android:layout_marginBottom="20dp"
         android:onClick="onCheckboxClicked"
         android:text="FOLD - 25 php"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Checkboxpressheavy"
         app:layout_constraintEnd_toStartOf="@+id/radioGroupheavy"
         app:layout_constraintHorizontal_bias="0.722"
@@ -74,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="SELECT SERVICE/S:"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView3heavy"
@@ -86,6 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HEAVY FABRIC"
+        android:textColor="#000000"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textViewheavy"
@@ -101,6 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:text="MINIMUM WEIGHT IS 3 KILOS, MAXIMUM OF 8 KILOS"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Checkboxwashheavy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -111,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
         android:text="TOTAL PRICE:"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonheavy"
@@ -135,6 +141,7 @@
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
             android:text="4 KILOS"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="263dp" />
 
@@ -144,6 +151,7 @@
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
             android:text="5 KILOS"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="263dp" />
 
@@ -153,6 +161,7 @@
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
             android:text="6 KILOS"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="263dp" />
 
@@ -162,6 +171,7 @@
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
             android:text="7 KILOS"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="263dp" />
 
@@ -171,6 +181,7 @@
             android:layout_height="wrap_content"
             android:onClick="radioClicked"
             android:text="8 KILOS"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="263dp" />
 

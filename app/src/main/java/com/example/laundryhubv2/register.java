@@ -91,6 +91,7 @@ public class register extends AppCompatActivity {
                                         hashMap1.put("Password",password1);
                                         hashMap1.put("Confirm password",password1confirm);
                                         hashMap1.put("Address", address);
+                                        hashMap1.put("Mobile Number", mobilenumber);
 
                                         firebaseDatabase.getInstance().getReference("Registration")
                                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SelectType"
     android:background="@drawable/bg"
-    android:backgroundTint="#80FFFFFF"
-    android:backgroundTintMode="src_over">
+    >
 
     <TextView
         android:id="@+id/textView2"
@@ -16,8 +15,10 @@
         android:layout_marginBottom="64dp"
         android:gravity="center"
         android:text="SELECT CLOTHES TYPE:"
+        android:textColor="#000000"
         android:textSize="35sp"
         android:textStyle="bold"
+        app:drawableTint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Buttonsoft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -27,7 +28,7 @@
         android:id="@+id/Buttonheavy"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="60dp"
         android:text="heavy (Maong/wool)"
         app:backgroundTint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/Buttonviewbookingsoft"
@@ -63,12 +64,24 @@
         android:id="@+id/Buttonviewbookingheavy"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="55dp"
         android:text="VIEW MY BOOKING ON HEAVY FABRICS"
         app:backgroundTint="#D84B4B"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/Buttonsignout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Buttonsignout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="SIGNOUT"
+        app:backgroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

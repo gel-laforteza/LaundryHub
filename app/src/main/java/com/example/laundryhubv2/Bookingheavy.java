@@ -3,10 +3,14 @@ package com.example.laundryhubv2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -18,8 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Bookingheavy extends AppCompatActivity {
 
     private DatabaseReference databaseReferencebookingheavy;
-    private TextView washbookingheavy,drybookingheavy,foldbookingheavy,pressbookingheavy,weightbookingheavy,totalpricebookingheavy;
-    private Button buttoncancelheavy;
+    private TextView washbookingheavy,drybookingheavy,foldbookingheavy,pressbookingheavy,weightbookingheavy,totalpricebookingheavy, timebookingheavy;
+    private Button buttoncancelheavy, buttondeliveredheavy;
     DatabaseReference databaseReferencebooking3;
     FirebaseAuth Fauthhheavy;
 
@@ -42,6 +46,8 @@ public class Bookingheavy extends AppCompatActivity {
         weightbookingheavy = (TextView) findViewById(R.id. Textviewweightbookingheavy);
         totalpricebookingheavy = (TextView) findViewById(R.id. Textviewtotalpricebookingheavy);
         buttoncancelheavy = (Button) findViewById(R.id.Buttoncancelorderheavy);
+        timebookingheavy = (TextView) findViewById(R.id. Textviewtimeheavy);
+        buttondeliveredheavy = (Button) findViewById(R.id. Buttondeliveredheavy);
 
 
 
@@ -57,7 +63,7 @@ public class Bookingheavy extends AppCompatActivity {
                 washbookingheavy.setText("Wash: " + washhh);
 
                 if (washhh == null){
-                    washbookingheavy.setText("Wash: No");
+                    washbookingheavy.setText("Wash: ");
                 }
 
 
@@ -65,7 +71,7 @@ public class Bookingheavy extends AppCompatActivity {
                 drybookingheavy.setText(("Dry: " + dryyy));
 
                 if (dryyy ==null){
-                    drybookingheavy.setText(("Dry: No"));
+                    drybookingheavy.setText(("Dry: "));
                 }
 
 
@@ -73,26 +79,35 @@ public class Bookingheavy extends AppCompatActivity {
                 foldbookingheavy.setText(("Fold: " + folddd));
 
                 if (dryyy ==null){
-                    foldbookingheavy.setText(("Fold: No"));
+                    foldbookingheavy.setText(("Fold: "));
                 }
 
                 String presss = (String) dataSnapshot.child("Press").getValue();
                 pressbookingheavy.setText(("Press: " + presss));
 
                 if (dryyy ==null){
-                    pressbookingheavy.setText(("Press: No"));
+                    pressbookingheavy.setText(("Press: "));
                 }
 
                 String weighttt = (String) dataSnapshot.child("Weight").getValue();
                 weightbookingheavy.setText(("Weight: " + weighttt));
 
                 if (weighttt ==null){
-                    weightbookingheavy.setText(("Weight: None"));
+                    weightbookingheavy.setText(("Weight: "));
+                }
+
+                String timeee = (String) dataSnapshot.child("DateAndTime").getValue();
+                timebookingheavy.setText("Placed on: " + timeee);
+
+                if (timeee == null){
+                    timebookingheavy.setText("Placed on: ");
                 }
 
 
-                String totalpriceee = (String) dataSnapshot.child("Total Price").getValue();
+                String totalpriceee = (String) dataSnapshot.child("TotalPrice").getValue();
                 totalpricebookingheavy.setText(( totalpriceee));
+
+
 
 
             }
@@ -106,12 +121,57 @@ public class Bookingheavy extends AppCompatActivity {
         buttoncancelheavy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                databaseReferencebooking3 = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
-                databaseReferencebooking3.setValue(null);
+                AlertDialog.Builder builder=new AlertDialog.Builder(Bookingheavy.this);
+                builder.setTitle("CANCEL BOOKING");
+                builder.setMessage("ARE YOU SURE YOU WANT TO CANCEL YOUR BOOKING?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        databaseReferencebookingheavy = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
+                        databaseReferencebookingheavy.setValue(null);
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
             }
         });
 
+        buttondeliveredheavy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(Bookingheavy.this);
+                builder.setTitle("DELIVERED");
+                builder.setMessage("DID THE CLOTHES ARRIVE?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        databaseReferencebookingheavy = FirebaseDatabase.getInstance().getReference("Heavy Orders").child(useridd);
+                        databaseReferencebookingheavy.setValue(null);
+                        Toast.makeText(Bookingheavy.this,"THANK YOU FOR AVAILING LAUNDRYHUB'S LAUNDRY SERVICE! HAVE A GOOD DAY!", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Bookingheavy.this, SelectType.class));
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
+            }
+        });
 
 
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register">
+    tools:context=".register"
+    android:background="@drawable/bg">
 
     <TextView
         android:id="@+id/Textviewcreateaccount"
@@ -14,6 +15,7 @@
         android:gravity="center"
         android:text="CREATE YOUR ACCOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/Firstname"
         app:layout_constraintEnd_toEndOf="parent"
